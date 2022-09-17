@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <!-- <link rel="stylesheet" href="index.css"> -->
+   
+    <style>
+        
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                background: #170a1b;
+            }
+            #clockContainer{
+                position: relative;
+                border: 0px solid #103830;
+                border-radius: 50%;
+                height: 40vw;
+                width: 40vw;
+                /* background: url(Clock.png) no-repeat; */
+                box-shadow: 0 0 15px 5px #470e39;  
+                margin: auto;
+                margin-top: 20px;
+                background: #100a36;
+
+
+            }
+            #center{
+                position: absolute;
+                height: 5%;
+                width: 5%;
+                left: 47.9%;
+                top: 47.4%;
+                border-radius: 50%;
+                border: 0px solid black;
+                background: rgb(61, 15, 15);
+
+            }
+            #hour, #minute, #second{
+                position: absolute;
+                background: black;
+                border-radius: 10px;
+                transform-origin: bottom;
+                box-shadow: 0 0 2px silver;
+            }
+            #hour{
+                height: 21%;
+                width: 2.2%;
+                top: 29%;
+                left: 49.9%;
+                opacity: 0.8;
+                background-color: #990f0f;
+                
+            }
+            #minute{
+                height: 29%;
+                width: 1.6%;
+                top: 21%;
+                left: 49.9%;
+                opacity: 0.8; 
+                background-color: #109c46;
+            }
+            #second{
+                height: 36%;
+                width: 1.2%;
+                top: 14%;
+                left: 49.9%;
+                opacity: 0.8;  
+                background-color: #791797;
+                
+            }
+            #number{
+                position: absolute;
+                height: 14%;
+                width: 16%;
+                background: transparent ;
+                font-size: 5vw;
+                color: white;
+            
+
+            }
+            .num12{
+                left: 42%;
+                text-align: center;
+            }
+            .num9{
+                top: 42%;
+                left: 2%;
+            }
+            .num3{
+                left: 82%;
+                top: 42%;
+                text-align: right;
+            }
+            .num6{
+                left: 42%;
+                top: 87%;
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <div id="clockContainer">
+       <div id="hour"></div>
+       <div id="minute"></div>
+       <div id="second"></div>
+       <div id="center"></div>
+       <div id="number" class="num12">12</div>
+       <div id="number" class="num3">3</div>
+       <div id="number" class="num6">6</div>
+       <div id="number" class="num9">9</div>
+    </div>
+    
+     <script >
+        setInterval(displayClock,1000);
+
+            function displayClock(){
+                time = new Date();
+                hrs = time.getHours();
+                min = time.getMinutes();
+                sec = time.getSeconds();
+                hrsrotation = 30*hrs + min/2;
+                minrotation = 6*min;
+                secrotation = 6*sec;
+
+                hour.style.transform = `rotate(${hrsrotation}deg)`;
+                minute.style.transform = `rotate(${minrotation}deg)`;
+                second.style.transform = `rotate(${secrotation}deg)`;
+            }
+     </script>
+</body>
+</html>
